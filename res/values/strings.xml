@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Winklick</string>
+    <string name="hello_world">Hello world!</string>
+    <string-array name="set_eyeList_value"><!-- 왼눈, 오른눈 설정 -->
+        <item >true</item>
+        <item >false</item>
+    </string-array>
+    <string-array name="set_eyeList_desc">
+        <item >Left Eye</item>
+        <item >Right Eye</item>
+    </string-array>
+    <string-array name="lang_value"><!-- 언어 설정 -->
+        <item >ko</item>
+        <item >en</item>
+    </string-array>
+    <string-array name="lang_desc">
+        <item >한국어</item>
+        <item >English</item>
+    </string-array>
+    <!-- 사용법 : android:text="@string/name_school" -->
+    
+    
+    <!-- activity_developer_info -->
+    <string name="name_school">Auejin Ham\n @ Kwan-ak High School\n</string>
+    <string name="copyright">copyright&#169;2015&#8211;2016\n</string>
+    <string name="proj_goal">Dreaming to build a software navigating through the needs of people wandering on the sea of information.&#8230;</string>
+
+    <!-- activity_main, activity_main_tablet -->
+    <string name="actv_main">On learning processes, follow the audio guide, look at the direction of the arrow on the screen.</string>
+    <string name="run">Run Winklick</string>
+    <string name="end">End Winklick</string>
+    <string name="settings">Settings</string>
+    <string name="test_activ_tablet">testActivity for tablet</string>
+    <string name="test_activ_phone">testActivity for phone</string>
+    
+    <!-- 설정창 변경오류시 toast -->
+    <string name="cursor_v_low">Cursor velocity should not be negative.</string>
+    <string name="cursor_v_int">Cursor velocity must be integer.</string>
+    <string name="prdsec_low">Algorithm execution period should not be negative.</string>
+    <string name="prdsec_double">Algorithm execution period must be a real rational number.</string>
+    
+    <!-- before_start_inflate -->
+    <string name="inf1">\nAvoid backlights.\nKeep your site bright.</string>
+    <string name="inf2">\nLook at the center and do not move your chin. Make sure your face is not cut by the image edge.</string>
+    <string name="inf3">\nTake off your eyeglasses.</string>
+    
+    <!-- action_service -->
+    <string name="as_base">Learning eye features!\n</string>
+    <string name="as_lWink">Wink LEFT eye!</string>
+    <string name="as_rWink">Wink RIGHT eye!</string>
+    <string name="as_mid">Look at CENTER of the screen!</string>
+    <string name="as_up">Look ↑UP↑</string>
+    <string name="as_down">Look ↓DOWN↓</string>
+    
+    <!-- sayTest @ faceService -->
+    <string name="st_fout">Face out of image.</string>
+    <string name="st_close">Too close.</string>
+    <string name="st_far">Too far.</string>
+    <string name="st_bright">Lights too bright!</string>
+    <string name="st_dark">Lights too dark.</string>
+    
+    <string name="st_learn_mid">Look at center of the screen.</string>
+    <string name="st_learn_up">Look up!</string>
+    <string name="st_learn_down">Look down!</string>
+    <string name="st_learn_lWink">Wink left eye.</string>
+    <string name="st_learn_rWink">Wink right eye.</string>
+    <string name="st_learn_end">Learing process complete.</string>
+    
+    <!-- settings @ /xml -->
+    <string name="system_set">System Setting</string>
+    <string name="see_face">Show Input Image</string>
+    <string name="see_face_s">Show input image of camera enabling users to calibrate the device easily</string>
+    <string name="cursor_speed">Cursor Speed</string>
+    <string name="cursor_speed_s">Relative value of cursor acceleration (Defaults : 6)</string>
+    <string name="execution_period">Algorithm Execution Period</string>
+    <string name="execution_period_s">Lower this value to reduce lagging (Defaults : 0.1sec)</string>
+    <string name="test_keyboard">Test Activity Keyboard</string>
+    <string name="test_keyboard_s">Change test keyboard into QWERTY not number pad.</string>
+    <string name="lang">Language</string>
+    <string name="lang_s">Choose language you use.</string>
+    
+    <string name="eye_set">Standard Eyes</string>
+    <string name="click_eye_set">Standard Eye for Wink Detection</string>
+    <string name="click_eye_set_s">The standard eye to generate touch events.</string>
+    <string name="cursor_eye_set">Standard Eye for Eye Gaze Detection</string>
+    <string name="cursor_eye_set_s">The standard eye to move cursor.</string>
+    
+    <string name="app_info">Application Info</string>
+    <string name="dev_info">Developer Info</string>
+    <string name="dev_info_s">Check the guy who made this awesome software.</string>
+    <string name="mailto">Mail to the Developer</string>
+    <string name="mailto_s">Feedbacks always improve this software.</string>
+</resources>

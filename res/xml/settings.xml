@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+        
+    <PreferenceCategory android:title="@string/system_set">
+        <CheckBoxPreference 
+        android:defaultValue="true"
+        android:key="isFaceVisible"
+        android:summary="@string/see_face_s"
+        android:title="@string/see_face"/>
+        <EditTextPreference 
+        android:defaultValue="6"
+        android:key="cursorSpeed"
+        android:summary="@string/cursor_speed_s"
+        android:title="@string/cursor_speed"/>
+        <EditTextPreference 
+        android:defaultValue="0.1"
+        android:key="updatePeriodSec"
+        android:summary="@string/execution_period_s"
+        android:title="@string/execution_period"/>
+        <CheckBoxPreference 
+        android:defaultValue="false"
+        android:key="isTestQwerty"
+        android:summary="@string/test_keyboard_s"
+        android:title="@string/test_keyboard"/>
+        <ListPreference 
+	        android:entries="@array/lang_desc" 
+	        android:entryValues="@array/lang_value" 
+	        android:title="@string/lang" 
+	        android:key="local" 
+	        android:summary="@string/lang_s" 
+	        android:defaultValue="true"/>
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/eye_set">
+        <ListPreference 
+	        android:entries="@array/set_eyeList_desc" 
+	        android:entryValues="@array/set_eyeList_value" 
+	        android:title="@string/click_eye_set" 
+	        android:key="isClickEyeLeft" 
+	        android:summary="@string/click_eye_set_s" 
+	        android:defaultValue="true"/>
+	    <ListPreference 
+	        android:entries="@array/set_eyeList_desc" 
+	        android:entryValues="@array/set_eyeList_value" 
+	        android:title="@string/cursor_eye_set" 
+	        android:key="isCursorEyeLeft" 
+	        android:summary="@string/cursor_eye_set_s" 
+	        android:defaultValue="true"/>
+    <!-- values/strings.xml에 set_eyeList_value 있다 -->
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/app_info" >
+	    <Preference
+	        android:summary="@string/dev_info_s"
+	        android:title="@string/dev_info" >
+	        <intent
+	            android:targetClass="me.blog.haj990108.winklick.DeveloperInfo"
+	            android:targetPackage="me.blog.haj990108.winklick" />
+	    </Preference>
+	    <Preference
+	        android:summary="@string/mailto_s"
+	        android:title="@string/mailto" >
+	        <intent
+	            android:action="android.intent.action.SENDTO"
+	            android:data="mailto:haj990108@naver.com" />
+	    </Preference>
+	</PreferenceCategory>
+    
+
+</PreferenceScreen>

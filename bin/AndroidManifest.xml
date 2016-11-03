@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.blog.haj990108.winklick"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-feature android:name="android.hardware.camera" />
+	<uses-feature android:name="android.hardware.camera.autofocus" />
+	<uses-feature android:name="android.hardware.camera.front" android:required="false" />
+	<uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    
+    <application
+        android:name=".GlobalSettings"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme"
+        >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingsActivity" android:label="@string/app_name">
+        </activity><!-- 설정창 -->
+        <activity android:name=".DeveloperInfo" android:label="@string/app_name" android:theme="@android:style/Theme.Dialog">
+        </activity><!-- 개발자 정보창 -->
+        <activity android:name=".BeforeStartActivity" android:label="Before using Winklick"> <!--  android:theme="@android:style/Theme.Dialog" -->
+        </activity><!-- 사용전 안내창 -->
+        <activity android:name=".TestActivity" android:label="@string/app_name">
+        </activity><!-- 터치 테스트 액티비티 -->
+        <activity android:name=".TestQwertyActivity" android:label="@string/app_name">
+        </activity><!-- 쿼티자판 테스트 액티비티 -->
+        <service 
+			android:name=".UnlockService"
+			android:enabled="true"
+			android:exported="false">
+        </service><!-- 인식2 : 눈동자 암호로 잠금해제 -->
+		
+        <service 
+			android:name=".ActionService"
+			android:enabled="true"
+			android:exported="false"> <!-- 인식1 : 눈동자로 항상터치 -->
+		</service>
+		
+		<service 
+			android:name=".ScreenService"
+			android:enabled="true"
+			android:exported="false"> <!-- ScreenReceiver를 등록하기 위한 서비스 -->
+		</service>
+		
+		<service 
+		    android:configChanges="orientation|screenSize"
+			android:name=".FaceService"
+			android:enabled="true"
+			android:exported="false"
+			android:theme="@style/Theme.Transparent" > <!-- 인식 1, 2에서 얼굴 및 동공인식을 위한 서비스 theme 해도 투명화 안됨 -->
+        	
+        </service>
+		<receiver android:name=".ScreenReceiver" /> <!-- 잠금, 전화, 문자옴을 확인하는 리시버 -->
+		
+    </application>
+     <!-- <application
+		android:name=".GlobalSettings"
+		android:icon="@drawable/ic_launcher"
+		android:label="GlobalSettings">
+	</application>faceService에서 받아온 정보를 각 서비스에게 전달 (전역변수 저장창고) -->
+
+</manifest>

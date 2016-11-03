@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal"
+	android:padding="10dp" >
+	<LinearLayout
+	     android:layout_width="wrap_content"
+	     android:layout_height="match_parent"
+	     android:layout_weight="3"
+	     android:orientation="vertical" >
+        
+	    <ImageView
+		    android:id="@+id/main_img"
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:layout_gravity="center_horizontal"
+		    android:layout_weight="1"
+		    android:scaleType="fitCenter"
+		    android:src="@drawable/main_img_tablet" />
+
+	    <TextView
+	        android:id="@+id/main_img_text"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:padding="20dp"
+	        android:layout_weight="3"
+	        android:gravity="center"
+	        android:textAppearance="?android:attr/textAppearanceLarge" 
+	        android:text="@string/actv_main" />
+    </LinearLayout>
+    
+    <LinearLayout
+	     android:layout_width="wrap_content"
+	     android:layout_height="match_parent"
+	     android:layout_weight="1"
+	     android:orientation="vertical" >
+
+		 <Button
+	         android:id="@+id/serviceBtn"
+	         android:layout_width="fill_parent"
+	         android:layout_height="fill_parent"
+	         android:layout_weight="1"
+	         android:text="@string/run" />
+	     <Button
+	        android:id="@+id/settingsBtn"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_weight="1"
+	        android:text="@string/settings" />
+	    
+	    <Button
+	        android:id="@+id/testBtn"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_weight="1"
+	        android:text="@string/test_activ_tablet" />
+	</LinearLayout>
+
+</LinearLayout>

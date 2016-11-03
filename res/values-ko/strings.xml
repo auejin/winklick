@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">윙클릭</string>
+    <string name="hello_world">Hello world!</string>
+    <string-array name="set_eyeList_value"><!-- 왼눈, 오른눈 설정 -->
+        <item >true</item>
+        <item >false</item>
+    </string-array>
+    <string-array name="set_eyeList_desc">
+        <item >왼눈</item>
+        <item >오른눈</item>
+    </string-array>
+    <string-array name="lang_value"><!-- 언어 설정 -->
+        <item >ko</item>
+        <item >en</item>
+    </string-array>
+    <string-array name="lang_desc">
+        <item >한국어</item>
+        <item >English</item>
+    </string-array>
+    
+	<!-- activity_developer_info -->
+    <string name="name_school">함어진 @ 관악고등학교\n</string>
+    <string name="copyright">잘 부탁드립니다 ^^\ncopyright&#169;2015&#8211;2016\n</string>
+    <string name="proj_goal">정보의 바다에서 소외받는 누군가에게\n새로운 가치를 더해줄 수 있는 소프트웨어가 되길 바라며&#8230;</string>
+    
+    <!-- activity_main, activity_main_tablet -->
+    <string name="actv_main">머신러닝 실행 시, 음성안내에 따라\n화살표 방향으로 쳐다보세요</string>
+    <string name="run">윙클릭 시작!</string>
+    <string name="end">윙클릭 종료!</string>
+    <string name="settings">설정</string>
+    <string name="test_activ_tablet">타블렛 실험화면</string>
+    <string name="test_activ_phone">스마트폰 실험화면</string>
+    
+    <!-- 설정창 변경오류시 toast -->
+    <string name="cursor_v_low">커서 속도는 음수일 수 없습니다.</string>
+    <string name="cursor_v_int">커서 속도는 정수여야 합니다.</string>
+    <string name="prdsec_low">실행 주기가 너무 짧습니다.</string>
+    <string name="prdsec_double">실행 주기를 잘못 입력하셨습니다.</string>
+    
+    <!-- before_start_inflate -->
+    <string name="inf1">\n역광을 피하고 밝은 곳에서 실행합시다.</string>
+    <string name="inf2">\n가운데를 보고 턱을 움직이지 맙시다.\n화면에 얼굴이 잘리지 않도록 합시다.</string>
+    <string name="inf3">\n안경은 벗고 시작합시다.</string>
+    
+    <!-- action_service -->
+    <string name="as_base">머신러닝 실행중!\n</string>
+    <string name="as_lWink">왼눈을 감아 윙크하세요!</string>
+    <string name="as_rWink">오른눈을 감아 윙크하세요!</string>
+    <string name="as_mid">화면 가운데를 쳐다보세요!</string>
+    <string name="as_up">눈을 ↑위↑로 뜨세요!</string>
+    <string name="as_down">눈을 ↓아래↓로 뜨세요!</string>
+    
+    <!-- sayTest @ faceService -->
+    <string name="st_fout">화면 밖으로 나갔단다.</string>
+    <string name="st_close">너무 가까이에 있어.</string>
+    <string name="st_far">너무 멀리 있어.</string>
+    <string name="st_bright">빛이 너무 밝아!</string>
+    <string name="st_dark">빛이 너무 어두워.</string>
+    
+    <string name="st_learn_mid">가운데를 쳐다보렴.</string>
+    <string name="st_learn_up">눈을 위로 뜨렴.</string>
+    <string name="st_learn_down">눈을 아래로 뜨렴.</string>
+    <string name="st_learn_lWink">왼눈을 감아 윙크하렴.</string>
+    <string name="st_learn_rWink">오른눈을 감아 윙크하렴.</string>
+    <string name="st_learn_end">머신러닝 완료.</string>
+    
+    <!-- settings @ /xml -->
+    <string name="system_set">기본 설정</string>
+    <string name="see_face">얼굴 보이기</string>
+    <string name="see_face_s">좌측 상단에 Winklick이 인식한 이미지를 띄웁니다.</string>
+    <string name="cursor_speed">커서 속도</string>
+    <string name="cursor_speed_s">커서의 움직임 속도를 조절합니다. (기본값 : 6)</string>
+    <string name="execution_period">알고리즘 실행 주기</string>
+    <string name="execution_period_s">Winklick 알고리즘의 실행주기를 설정합니다. (기본값 : 0.1초)</string>
+    <string name="test_keyboard">테스트 화면 키보드</string>
+    <string name="test_keyboard_s">선택시 키보드를 숫자판이 아닌 qwerty로 바꿉니다.</string>
+    <string name="lang">Language</string>
+    <string name="lang_s">언어를 설정합니다.</string>
+    
+    <string name="eye_set">기준 눈 설정</string>
+    <string name="click_eye_set">클릭 인식 기준 눈</string>
+    <string name="click_eye_set_s">윙크를 인식하는 기준 눈을 정합니다.</string>
+    <string name="cursor_eye_set">커서 인식 기준 눈</string>
+    <string name="cursor_eye_set_s">동공이동을 인식하는 기준 눈을 정합니다.</string>
+    
+    <string name="app_info">어플 정보</string>
+    <string name="dev_info">개발자 정보</string>
+    <string name="dev_info_s">개발자 정보를 확인합니다.</string>
+    <string name="mailto">메일 보내기</string>
+    <string name="mailto_s">개발자에게 메일을 보냅니다.</string>
+</resources>

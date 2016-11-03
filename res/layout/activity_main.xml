@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <!-- http://belll.tistory.com/65 weight와 match_parent는 같이쓰지 말자, weight는 여백을 줄이며 그 비율을 나타낸다. -->
+    <ImageView
+        android:id="@+id/main_img"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="3"
+        android:scaleType="fitCenter"
+        android:src="@drawable/main_img" />
+
+    <TextView
+        android:id="@+id/main_img_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="20dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:text="@string/actv_main" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/serviceBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/run" />
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/settingsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="@string/settings" />
+    
+    <Button
+        android:id="@+id/testBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="@string/test_activ_phone" />
+</LinearLayout>
