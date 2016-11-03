@@ -2,6 +2,17 @@
 is an open source touch input system using pupil for android smartphones.
 And this is made by [Auejin Ham](https://fb.com/auejin), a sophomore in Kwanak High School, Seoul, South Korea.
 
+# Algorithm Structure
+Google Presentation : [Click here to see](https://docs.google.com/presentation/d/1-lDESAHk1FEUKRgrNjmKZ9gnl_Uo8wq3_Nsei2fDRaQ/pub?start=true&loop=false&delayms=60000)
+
+Test Video : [Click here to see](https://youtu.be/Eldtnx98beA)
+
+# Awards, Finalists, Participations
+Won a Silver Medal on Korean Olympiad of Informatics (Project Section, 2015)
+Won a First Award on Seoul Science Project Presentation Competition (2016)
+Was a Finalist at Intel International Science and Engineering Fair (2016)
+Participated on Google Science Fair (2016)
+
 # How to Use This
 1. Hold your phone vertically(in portrait way).
 2. Touch "Run Winklick", and swipe out three steps of disclamer pages.
@@ -22,9 +33,6 @@ You can inject touch event on the location of the cursor, by simply winking to t
 1. Make sure to avoid backlights and keep your site bright.
 2. Look at the center of the screen and please try not to move your face during learning process. The Instruction voice will guide you about this.
 3. Face with Eyeglasses cannot be recognized. Sorry.
-
-# Algorithm Structure
-Google Presentation : [Click here to see](https://docs.google.com/presentation/d/1-lDESAHk1FEUKRgrNjmKZ9gnl_Uo8wq3_Nsei2fDRaQ/pub?start=true&loop=false&delayms=60000)
 
 # Trouble Shooting
 Q. When I first activate this app, the only thing I can use is Qwerty keyboard.
