@@ -75,8 +75,6 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 		private WindowManager mWindowManager;
 		
 		
-
-		
 		private static final String TAG = "OCVSample::Activity";
 	    private static final Scalar FACE_RECT_COLOR = new Scalar(0, 255, 0, 255);
 	    public static final int JAVA_DETECTOR = 0;
