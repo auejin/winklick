@@ -1,6 +1,6 @@
 # Winklick
 is an open source touch input system using pupil for android smartphones.
-And this is made by [Auejin Ham](fb.com/auejin), a sophomore in Kwanak High School, Seoul, South Korea.
+And this is made by [Auejin Ham](https://fb.com/auejin), a sophomore in Kwanak High School, Seoul, South Korea.
 
 # How to Use This
 1. Hold your phone vertically(in portrait way).
