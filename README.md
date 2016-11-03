@@ -24,7 +24,7 @@ You can inject touch event on the location of the cursor, by simply winking to t
 3. Face with Eyeglasses cannot be recognized. Sorry.
 
 # Algorithm Structure
-Presentation : [Open](https://docs.google.com/presentation/d/1-lDESAHk1FEUKRgrNjmKZ9gnl_Uo8wq3_Nsei2fDRaQ/pub?start=true&loop=false&delayms=60000)
+Google Presentation : [Click here to see](https://docs.google.com/presentation/d/1-lDESAHk1FEUKRgrNjmKZ9gnl_Uo8wq3_Nsei2fDRaQ/pub?start=true&loop=false&delayms=60000)
 
 # Trouble Shooting
 Q. When I first activate this app, the only thing I can use is Qwerty keyboard.
