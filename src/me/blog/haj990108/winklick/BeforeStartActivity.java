@@ -2,10 +2,15 @@ package me.blog.haj990108.winklick;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.Settings;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +24,22 @@ public class BeforeStartActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.before_start);
         setLayout();
+        
+
+		Log.i("TAG", "alert window (미니화면) 권한 있니?");
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+		           && !Settings.canDrawOverlays(getApplicationContext())) {
+			
+			Log.d("TAG", "alert window 권한 쇼부 보는중..");
+			Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+		    startActivityForResult(intent, 1);
+
+		} else {
+			Log.i("TAG", "alert window 권한 이미 있어!");
+			
+			// TODO : start activity
+		}
         
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(new PagerAdapterClass(getApplicationContext()));

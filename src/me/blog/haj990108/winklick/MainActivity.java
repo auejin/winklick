@@ -139,20 +139,8 @@ public class MainActivity extends Activity implements OnClickListener {
         		} else {
         			Log.i("TAG", "camera 권한 이미 있어!");
         			
-        			Log.i("TAG", "alert window (미니화면) 권한 있니?");
-            		
-        			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-        			           && !Settings.canDrawOverlays(global)) {
-        				
-        				Log.d("TAG", "alert window 권한 쇼부 보는중..");
-        				Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-            		    startActivityForResult(intent, MY_PERMISSIONS_REQUEST_ALERT_WINDOW);
-
-        			} else {
-        				Log.i("TAG", "alert window 권한 이미 있어!");
-            			
-            			startActivity(new Intent(this, BeforeStartActivity.class));
-        			}
+        			startActivity(new Intent(this, BeforeStartActivity.class));
+        			
         			
         		}
         		
