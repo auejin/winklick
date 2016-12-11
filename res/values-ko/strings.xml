@@ -33,6 +33,7 @@
     <string name="test_activ_tablet">타블렛 실험화면</string>
     <string name="test_activ_phone">스마트폰 실험화면</string>
     <string name="camera_permission_denied">카메라 권한 없이 실행할 수 없습니다!</string>
+    <string name="alert_window_permission_denied">경고창 권한 없이 실행할 수 없습니다!</string>
     
     <!-- 설정창 변경오류시 toast -->
     <string name="cursor_v_low">커서 속도는 음수일 수 없습니다.</string>

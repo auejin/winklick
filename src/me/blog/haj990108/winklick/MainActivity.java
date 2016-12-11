@@ -20,13 +20,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Vibrator;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -45,7 +48,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private GlobalSettings global;
 	public static Button serviceBtn;
 	public static Context mContext;
-	private final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
+	
 	//private static boolean isTestQwerty = false;
 	
     @Override
@@ -136,9 +139,22 @@ public class MainActivity extends Activity implements OnClickListener {
         		} else {
         			Log.i("TAG", "camera 권한 이미 있어!");
         			
-        			startActivity(new Intent(this, BeforeStartActivity.class));
+        			Log.i("TAG", "alert window (미니화면) 권한 있니?");
+            		
+        			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+        			           && !Settings.canDrawOverlays(global)) {
+        				
+        				Log.d("TAG", "alert window 권한 쇼부 보는중..");
+        				Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+            		    startActivityForResult(intent, MY_PERMISSIONS_REQUEST_ALERT_WINDOW);
+
+        			} else {
+        				Log.i("TAG", "alert window 권한 이미 있어!");
+            			
+            			startActivity(new Intent(this, BeforeStartActivity.class));
+        			}
+        			
         		}
-        		
         		
         	}
         	/*if(!global.isWinklickStarted){
@@ -183,6 +199,9 @@ public class MainActivity extends Activity implements OnClickListener {
             
     }
     
+    private final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
+    private final int MY_PERMISSIONS_REQUEST_ALERT_WINDOW = 1;
+    
     @Override
 	public void onRequestPermissionsResult(int requestCode,
 	        String permissions[], int[] grantResults) {
@@ -205,6 +224,32 @@ public class MainActivity extends Activity implements OnClickListener {
 	            	
 	            	Toast.makeText(getApplicationContext(),
 	            			getString(R.string.camera_permission_denied)
+	            			, Toast.LENGTH_SHORT).show();
+	            	
+	                // permission denied, boo! Disable the
+	                // functionality that depends on this permission.
+	            }
+	            return;
+	        }
+	        
+	        case MY_PERMISSIONS_REQUEST_ALERT_WINDOW: {
+	            // If request is cancelled, the result arrays are empty.
+	            if (grantResults.length > 0
+	                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+	            	
+	            	Log.i("TAG", "alert window 권한 생겼어!");
+	            	
+	                // permission was granted, yay! Do the
+	                // contacts-related task you need to do.
+	            	
+	            	startActivity(new Intent(this, BeforeStartActivity.class));
+
+	            } else {
+	            	
+	            	Log.e("TAG", "alert window 권한 없어!");
+	            	
+	            	Toast.makeText(getApplicationContext(),
+	            			getString(R.string.alert_window_permission_denied)
 	            			, Toast.LENGTH_SHORT).show();
 	            	
 	                // permission denied, boo! Disable the

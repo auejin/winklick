@@ -5,10 +5,10 @@
     android:layout_height="wrap_content"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <org.opencv.android.NativeCameraView
+    <org.opencv.android.JavaCameraView
         
         android:layout_width="wrap_content"
   		android:layout_height="wrap_content"
-        android:id="@+id/NativeCameraView1"/>
+        android:id="@+id/JavaCameraView1"/>
 
 </RelativeLayout><!--match_parent wrap_content -->

@@ -19,8 +19,8 @@ import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
+import org.opencv.android.JavaCameraView;
 import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.NativeCameraView;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener;
 import org.opencv.core.Core;
@@ -31,7 +31,6 @@ import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
-import org.opencv.highgui.Highgui;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.objdetect.Objdetect;
@@ -278,17 +277,19 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 	        
 			mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 			
-			mPopupView = (RelativeLayout) li.inflate(R.layout.nativecam_view, null);
+			mPopupView = (RelativeLayout) li.inflate(R.layout.javacam_view, null);
 			
 			
 			
-			mOpenCvCameraView = (NativeCameraView) mPopupView.findViewById(R.id.NativeCameraView1);
+			mOpenCvCameraView = (JavaCameraView) mPopupView.findViewById(R.id.JavaCameraView1);
 			mOpenCvCameraView.setCameraIndex(1);
 	        mOpenCvCameraView.setCvCameraViewListener(this);
 	        mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
 	        
 	        
-	        mWindowManager.addView(mPopupView, mParams); //SYSTEM_ALERT_WINDOW permission 필요
+	        mWindowManager.addView(mPopupView, mParams);
+	        // TODO : api 23 이상서는SYSTEM_ALERT_WINDOW permission 을 쓰지 말라고 권고함.
+	        // http://thdev.tech/androiddev/2016/05/08/Android-Overlay-Permission.html
 	        //OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
 	        global = (GlobalSettings) getApplicationContext();//super.onCreate()뒤에 넣자
 	        
@@ -389,15 +390,15 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 	 
 	        Rect[] facesArray = faces.toArray();
 	        if(facesArray.length > 0){
-	        	if (isLineVisible) Core.rectangle(mRgba, facesArray[0].tl(), facesArray[0].br(), FACE_RECT_COLOR, 3);
+	        	if (isLineVisible) Imgproc.rectangle(mRgba, facesArray[0].tl(), facesArray[0].br(), FACE_RECT_COLOR, 3);
 	            
 	            xCenter = (facesArray[0].x + facesArray[0].width + facesArray[0].x) / 2;
 	            yCenter = (facesArray[0].y + facesArray[0].y + facesArray[0].height) / 2;
 	            
 	            if (isLineVisible){
 		            Point center = new Point(xCenter, yCenter);//얼굴 중점 그리고 중점에 미니원(뽀대용)을 그린다
-		            Core.circle(mRgba, center, 10, new Scalar(255, 0, 0, 255), 3);
-		            Core.putText(mRgba, "[" + center.x + "," + center.y + "]",
+		            Imgproc.circle(mRgba, center, 10, new Scalar(255, 0, 0, 255), 3);
+		            Imgproc.putText(mRgba, "[" + center.x + "," + center.y + "]",
 		                    new Point(center.x + 20, center.y + 20),
 		                    Core.FONT_HERSHEY_SIMPLEX, 0.7, new Scalar(255, 255, 255,
 		                            255));//중점 옆에 위치좌표를 보여주는 텍스트 표시
@@ -410,9 +411,9 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 				Rect eyearea_left = returnEyeArea(r, true);
 				Rect eyearea_right = returnEyeArea(r, false);
 				
-				Core.rectangle(mRgba, eyearea_left.tl(), eyearea_left.br(),
+				Imgproc.rectangle(mRgba, eyearea_left.tl(), eyearea_left.br(),
 						new Scalar(255, 0, 0, 255), 2);
-				Core.rectangle(mRgba, eyearea_right.tl(), eyearea_right.br(),
+				Imgproc.rectangle(mRgba, eyearea_right.tl(), eyearea_right.br(),
 						new Scalar(255, 0, 0, 255), 2);
 				
 				traceUpdateEyesarray(r, true);//핵심 코드
@@ -515,7 +516,7 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 				//여기서 ratio가 face를 기준으로 했는데, 지금 eye측정 유무의 주기랑 face유무 주기랑 달라서 범위 초과로 assertion failed 오류났던 적이 있다.
 				//근데 이 코드는 얼굴을 찾았을 때 face인수가 있을 때 발생하는거라서....//그러니까 prev가 face로 덮어지면서 같아지니까 오류가 발생하지!!!!!
 				
-				Core.rectangle(mRgba
+				Imgproc.rectangle(mRgba
 						,new Point(eyearea.tl().x + tempEyeArea.tl().x, eyearea.tl().y + tempEyeArea.tl().y)
 						,new Point(eyearea.tl().x + tempEyeArea.br().x, eyearea.tl().y + tempEyeArea.br().y)
 						,new Scalar(255, 0, 0, 255), 3);//빨간색
@@ -541,7 +542,7 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 					prev_detected_eyearea_right = eyesArray[0];
 				}
 				//이전꺼 업뎃
-				Core.rectangle(mRgba
+				Imgproc.rectangle(mRgba
 						,new Point(eyearea.tl().x + eyesArray[0].tl().x, eyearea.tl().y + eyesArray[0].tl().y)
 						,new Point(eyearea.tl().x + eyesArray[0].br().x, eyearea.tl().y + eyesArray[0].br().y)
 						,FACE_RECT_COLOR, 3);
@@ -821,7 +822,7 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 					double colorArr[] = eye_a.get(y,x);
 					if (colorArr != null && colorArr[0] < 10){
 	            		y1 = y;//E1 = new Point(x,y);
-	            		Core.circle(eye_temp, new Point(x, y), 3, new Scalar(100, 100, 100, 255), 1);
+	            		Imgproc.circle(eye_temp, new Point(x, y), 3, new Scalar(100, 100, 100, 255), 1);
 	            		break E1Loop;
 	            	}
 	            }
@@ -831,7 +832,7 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 	            	double colorArr[] = eye_a.get(y,x);
 	            	if (colorArr != null && colorArr[0] < 10){
 	            		y2 = y;//E2 = new Point(x,y);
-	            		Core.circle(eye_temp, new Point(x, y), 3, new Scalar(100, 100, 100, 255), 1);
+	            		Imgproc.circle(eye_temp, new Point(x, y), 3, new Scalar(100, 100, 100, 255), 1);
 	            		break E2Loop;
 	            	}
 	            }
@@ -990,8 +991,8 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 	        
 	        //eye_temp = eye_a;//스레시홀드된 눈 영역 리턴
 	        
-			Core.rectangle(eye_temp, eye_a_area.tl(), eye_a_area.br(),new Scalar(100, 100, 100, 255), 1);//추정된 눈영역 리턴
-			Core.rectangle(eye_temp, dg.tl(), dg.br(),new Scalar(200, 200, 200, 255), 1);//추정된 동공영역 리턴
+			Imgproc.rectangle(eye_temp, eye_a_area.tl(), eye_a_area.br(),new Scalar(100, 100, 100, 255), 1);//추정된 눈영역 리턴
+			Imgproc.rectangle(eye_temp, dg.tl(), dg.br(),new Scalar(200, 200, 200, 255), 1);//추정된 동공영역 리턴
 			if(eye_temp.height() > 2 && eye_temp.width() > 2 && eye_temp.type() == 0) Imgproc.cvtColor(eye_temp, eye_temp, Imgproc.COLOR_GRAY2RGBA);//표시를 위해 흑백을 rgba로 변환
 			//이거 안쓰면 아에 창이 안보임
 			Imgproc.resize(eye_temp, mRgba,mRgba.size());//eye_temp //미니 창으로 표시
@@ -1112,7 +1113,7 @@ public class FaceService extends Service implements CvCameraViewListener2, OnIni
 				Log.i("WINK", "---wink--");
 			}*/
 			
-			//Core.rectangle(eye_b, eye_a_area.tl(), eye_a_area.br(),new Scalar(100, 100, 100, 255), 1);//추정된 눈영역 리턴
+			//Imgproc.rectangle(eye_b, eye_a_area.tl(), eye_a_area.br(),new Scalar(100, 100, 100, 255), 1);//추정된 눈영역 리턴
 			//Imgproc.cvtColor(eye_b, eye, Imgproc.COLOR_GRAY2RGBA);
 			return isBlink;
 		}
