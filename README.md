@@ -37,7 +37,7 @@ Test Video : [Click here to see](https://youtu.be/Eldtnx98beA)
 1. First, make sure your device is rooted. Sorry I cannot automize this process :(
 1. Install **SuperSU** application on your device.
 2. On the first activation, you will see a popup of SuperSU. Allow the root access of Winklick.
-3. Also, if your version of Android is API 23(marshmallow) or higher, you can see another popup when you touch **Run Winklick**. Allow the permission of camera useage.
+3. Also, if your version of Android is API 23(marshmallow) or higher, you can see another two popups for the access permission after you touch **Run Winklick**. To use full Winklick system, **ALLOW EVERY PERMISSION** of camera useage and drawing over other apps.
 
 ###Q. The only thing I can do is typing Qwerty keyboard with my eye. How can I use this outside this keyboard?
 The reason that keyboard screen is shown is because your device isn't rooted yet.
