@@ -7,21 +7,18 @@ Google Presentation : [Click here to see](https://docs.google.com/presentation/d
 
 Test Video : [Click here to see](https://youtu.be/Eldtnx98beA)
 
-# Awards, Finalists, Participations
-Won a Silver Medal on Korean Olympiad of Informatics (Project Section, 2015)
-Won a First Award on Seoul Science Project Presentation Competition (2016)
-Was a Finalist at Intel International Science and Engineering Fair (2016)
-Participated on Google Science Fair (2016)
+# Awards and Honors
+* Silver Medal on Korean Olympiad of Informatics (Project Section, 2015)
+* First Award on Seoul Science Project Presentation Competition (2016)
+* Finalist Medal on Intel International Science and Engineering Fair (2016)
+* Participated on Google Science Fair (2016)
 
 # How to Use This
 1. Hold your phone vertically(in portrait way).
-2. Touch "Run Winklick", and swipe out three steps of disclamer pages.
-3. Touch "Run Winklick" again, and keep looking at the front camera of the smartphone.
-4. Follow the Instruction Voice and pink popup on the screen.
-Make sure your face isn't out of image. The Instruction voice will guide you about this as well.
-5. After the machine learning process is over, you can move a cursor on the screen,
-by looking top, bottom, left, right side of your phone.
-You can inject touch event on the location of the cursor, by simply winking to the front camera.
+2. Touch **Run Winklick**, and swipe out three steps of disclamer pages.
+3. Touch **Run Winklick** again, and keep looking at the front camera of the smartphone.
+4. Follow the Instruction Voice and pink popup on the screen. Make sure your face isn't out of image. The Instruction voice will guide you about this as well.
+5. After the machine learning process is over, you can move a cursor on the screen, by looking top, bottom, left, right side of your phone. You can inject touch event on the location of the cursor, by simply winking to the front camera.
 
 # How to Install This
 1. Recompile this with Eclipse (or Android Studio)
@@ -35,27 +32,38 @@ You can inject touch event on the location of the cursor, by simply winking to t
 3. Face with Eyeglasses cannot be recognized. Sorry.
 
 # Trouble Shooting
-Q. When I first activate this app, the only thing I can use is Qwerty keyboard.
-Q. How Can I make touch event with this application
------------------
-1. First, your phone should be rooted. Sorry I cannot automize this process :(
-2. Go to "Settings" and disable "Test Activity Keyboard".
-3. When you first activate, allow the root access of Winklick.
 
-Q. I'm not an English speaker and I know nothing about Korean, so I want to change language into English.
------------------
-1. Touch second button lableled "설"
-2. Touch "Language"
-3. Select "English"
+###Q. How Can I make touch event with this application
+1. First, make sure your device is rooted. Sorry I cannot automize this process :(
+1. Install **SuperSU** application on your device.
+2. On the first activation, you will see a popup of SuperSU. Allow the root access of Winklick.
+3. Also, if your version of Android is API 23(marshmallow) or higher, you can see another popup when you touch **Run Winklick**. Allow the permission of camera useage.
 
-Q. The Algorithm / Cursor is too slow.
------------------
-Go to "Settings" and change Algorithm Execution Speed
+###Q. The only thing I can do is typing Qwerty keyboard with my eye. How can I use this outside this keyboard?
+The reason that keyboard screen is shown is because your device isn't rooted yet.
+You can use Winklick as ordinary touch input system only on rooted devices.
 
-Q. I want to hide my eye image. It covers my screen.
------------------
-Go to "Settings" and disable "Show Input Image"
 
-Q. What is "Standard Eye"?
------------------
-Go to "Settings" and disable "Show Input Image"
+###Q. What is **Standard Eyes**?
+**Standard Eyes** are targets that Winklick detects for movements of a cursor on the screen.
+There are two kinds of Standard Eyes, **Standard Eye for Wink Detection** and **Standard Eye for Eye Gaze Detection**.
+The former is used to detect whether user is pressing on the cursor or not.
+The latter is used to determine the direction of cursor movements.
+Each Standard Eye can be choosen between **Left Eye** and **Right Eye** independently.
+
+
+###Q. How can I change language into English?
+1. Touch second button lableled **설정**　
+2. Touch **Language**
+3. Select **English**
+
+###Q. The cursor moves too slow. Gotta go fast!
+Go to **Settings** and change **Cursor Speed** to more higher one.
+
+###Q. The Algorithm execution cycle is too slow.
+Go to **Settings** and change **Algorithm Execution Speed** to more lower one.
+
+###Q. I want to make my eye image area transparent. It covers my screen.
+Go to **Settings** and disable **Show Input Image** check button.
+
+
