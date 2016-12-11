@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import org.opencv.android.OpenCVLoader;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
@@ -17,6 +18,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,6 +27,8 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +45,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private GlobalSettings global;
 	public static Button serviceBtn;
 	public static Context mContext;
+	private final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
 	//private static boolean isTestQwerty = false;
 	
     @Override
@@ -83,6 +88,7 @@ public class MainActivity extends Activity implements OnClickListener {
         switch(view){
         case R.id.serviceBtn :
         	
+        	
         	/*if(!global.isTablet){
         		//스마트폰이면 경고창을 띄우는거 -> 버그 고쳤으므로 지움
         		AlertDialog.Builder alert_confirm = new AlertDialog.Builder(MainActivity.this);
@@ -113,8 +119,27 @@ public class MainActivity extends Activity implements OnClickListener {
             	Log.i("TAG", "All Service Ended");//기존 잠금화면은 놔두기로 했다. 잠금화면 위에 머신러닝이 뜨므로....
             	serviceBtn.setText(getString(R.string.run));
         	}else{
-        		startActivity(new Intent(this, BeforeStartActivity.class));
-        		//startWinklick();serviceBtn.setText("End Winklick");//이 줄은 BeforeStartActivity가 대신 해준다.
+        		
+
+            	Log.i("TAG", "camera 권한 있니?");
+        		// Here, thisActivity is the current activity
+        		if (ContextCompat.checkSelfPermission(this,
+        		                Manifest.permission.CAMERA)
+        		        != PackageManager.PERMISSION_GRANTED) {
+        			
+        			Log.d("TAG", "camera 권한 쇼부 보는중..");
+        			
+        			ActivityCompat.requestPermissions(this,
+    		                new String[]{Manifest.permission.CAMERA},
+    		                MY_PERMISSIONS_REQUEST_CAMERA);
+        			
+        		} else {
+        			Log.i("TAG", "camera 권한 이미 있어!");
+        			
+        			startActivity(new Intent(this, BeforeStartActivity.class));
+        		}
+        		
+        		
         	}
         	/*if(!global.isWinklickStarted){
         	global.isWinklickStarted = !global.isWinklickStarted;*/
@@ -157,6 +182,41 @@ public class MainActivity extends Activity implements OnClickListener {
         }
             
     }
+    
+    @Override
+	public void onRequestPermissionsResult(int requestCode,
+	        String permissions[], int[] grantResults) {
+	    switch (requestCode) {
+	        case MY_PERMISSIONS_REQUEST_CAMERA: {
+	            // If request is cancelled, the result arrays are empty.
+	            if (grantResults.length > 0
+	                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+	            	
+	            	Log.i("TAG", "camera 권한 생겼어!");
+	            	
+	                // permission was granted, yay! Do the
+	                // contacts-related task you need to do.
+	            	
+	            	startActivity(new Intent(this, BeforeStartActivity.class));
+
+	            } else {
+	            	
+	            	Log.e("TAG", "camera 권한 없어!");
+	            	
+	            	Toast.makeText(getApplicationContext(),
+	            			getString(R.string.camera_permission_denied)
+	            			, Toast.LENGTH_SHORT).show();
+	            	
+	                // permission denied, boo! Disable the
+	                // functionality that depends on this permission.
+	            }
+	            return;
+	        }
+
+	        // other 'case' lines to check for other
+	        // permissions this app might request
+	    }
+	}
     
     @Override
     protected void onResume() {
