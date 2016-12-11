@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class BeforeStartActivity extends Activity implements OnClickListener{
 	private ViewPager mPager;
@@ -34,6 +35,9 @@ public class BeforeStartActivity extends Activity implements OnClickListener{
 			Log.d("TAG", "alert window 권한 쇼부 보는중..");
 			Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
 		    startActivityForResult(intent, 1);
+		    Toast.makeText(getApplicationContext(),
+        			getString(R.string.alert_window_permission_denied)
+        			, Toast.LENGTH_LONG).show();
 
 		} else {
 			Log.i("TAG", "alert window 권한 이미 있어!");
