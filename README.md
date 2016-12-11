@@ -33,21 +33,18 @@ Test Video : [Click here to see](https://youtu.be/Eldtnx98beA)
 
 # Trouble Shooting
 
-Q. How Can I make touch event with this application
------------------
+###Q. How Can I make touch event with this application
 1. First, make sure your device is rooted. Sorry I cannot automize this process :(
 1. Install **SuperSU** application on your device.
 2. On the first activation, you will see a popup of SuperSU. Allow the root access of Winklick.
 3. Also, if your version of Android is API 23(marshmallow) or higher, you can see another popup when you touch **Run Winklick**. Allow the permission of camera useage.
 
-Q. The only thing I can do is typing Qwerty keyboard with my eye. How can I use this outside this keyboard?
------------------
+###Q. The only thing I can do is typing Qwerty keyboard with my eye. How can I use this outside this keyboard?
 The reason that keyboard screen is shown is because your device isn't rooted yet.
 You can use Winklick as ordinary touch input system only on rooted devices.
 
 
-Q. What is **Standard Eyes**?
------------------
+###Q. What is **Standard Eyes**?
 **Standard Eyes** are targets that Winklick detects for movements of a cursor on the screen.
 There are two kinds of Standard Eyes, **Standard Eye for Wink Detection** and **Standard Eye for Eye Gaze Detection**.
 The former is used to detect whether user is pressing on the cursor or not.
@@ -55,22 +52,18 @@ The latter is used to determine the direction of cursor movements.
 Each Standard Eye can be choosen between **Left Eye** and **Right Eye** independently.
 
 
-Q. How can I change language into English?
------------------
+###Q. How can I change language into English?
 1. Touch second button lableled **설정**　
 2. Touch **Language**
 3. Select **English**
 
-Q. The cursor moves too slow. Gotta go fast!
------------------
+###Q. The cursor moves too slow. Gotta go fast!
 Go to **Settings** and change **Cursor Speed** to more higher one.
 
-Q. The Algorithm execution cycle is too slow.
------------------
+###Q. The Algorithm execution cycle is too slow.
 Go to **Settings** and change **Algorithm Execution Speed** to more lower one.
 
-Q. I want to make my eye image area transparent. It covers my screen.
------------------
+###Q. I want to make my eye image area transparent. It covers my screen.
 Go to **Settings** and disable **Show Input Image** check button.
 
 
