@@ -24,7 +24,7 @@ Test Video : [Click here to see](https://youtu.be/Eldtnx98beA)
 5. After swiping the three pages, touch **Run Winklick** again, and keep looking at the front camera of your device.
 6. Follow the learning process written in a pink popup on the screen. TTS will read aloud those instructions. If Winklick service can't find your full face on input image, the instruction voice will notice you.
 7. After the machine learning process is completed, now you can type on the keyboard screen using Winklick system. Move a cursor on the screen, by looking top, bottom, left, right side of your phone. You can inject press and release event on the location of the cursor, by simply winking to the front camera.
-8. You can use Winklick input system on every application (just as an ordinary touch input system), only after your device is rooted. Check out the process on **here**.
+8. You can use Winklick input system on every application (just as an ordinary touch input system), only after your device is rooted. Check out the process on **[here](https://github.com/auejin/winklick#q-how-can-i-make-touch-event-outside-the-keyboard-screen)**.
 
 # How to Install This
 1. Compile this with Eclipse (or Android Studio)
