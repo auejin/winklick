@@ -1,4 +1,4 @@
-# About Winklick
+# Winklick
 is an open source touch input system using pupil movements for android devices.
 This entire system is made by Auejin Ham, a sophomore in Kwanak High School, Seoul, South Korea.
 
